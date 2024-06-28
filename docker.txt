@@ -1,0 +1,39 @@
+           comandos docker
+
+    Attach and detach
+
+si haces correr un comando normalmente quedas dentro de la aplicacion, si agregas -d (detach) la aplicacion queda funcionando y salis a la consola para seguir...
+para entrar nuevamente en la aplicacion pones docker attach y el numero de la aplicacion.
+
+docker run application
+docker run -d application
+docker attach napplication
+
+    IT
+
+para hacer andar el modo iteractive y quedarte dentro de la aplicacion ejecutando comandos tenes que porner -it despues del comando de ejecucion y al final con que lo vas a usar...
+y se sale con un exit
+
+docker run -it centos bash
+
+      EXEC
+
+para trabajar con los contenedores que estan creados se usa el comando exec
+
+docker exec numeroContenedor cat /ect/*release*
+
+     PUERTOS
+
+Para trabajar con los puertos se indica con la -p como por ejemplo con MySQL
+
+docker run -p 3306:3306 mysql
+
+     LINKS
+(manera vieja ahora se hace con docker compose)
+para poder linkear la aplicacion se le agrega --link junto con el nombre a linkear
+
+docker run -d --name=vote -p 5000:80 --link redis:redis voting-app
+
+    LINKS CON DOCKER COMPOSE
+
+se crea el docker-compose.yml con el nombre de la imagen los puertos etc....
